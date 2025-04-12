@@ -1,0 +1,283 @@
+<div class="content-box posts-section">
+    <h2 class="section-title">Ostatnie wpisy</h2>
+    
+    <div class="posts-grid">
+        {% for post in site.posts limit:3 %}
+        <article class="post-card">
+            <div class="post-card-inner">
+                <a href="{{ post.url }}" class="post-image-link">
+                    <img src="{{ post.image | default: '/assets/images/default-fishing.jpg' }}" 
+                         alt="{{ post.title }}" 
+                         class="post-image"
+                         loading="lazy">
+                    <div class="post-overlay">
+                        <span class="read-more">Zobacz więcej</span>
+                    </div>
+                </a>
+                
+                <div class="post-content">
+                    <div class="post-meta">
+                        <time class="post-date">{{ post.date | date: "%d.%m.%Y" }}</time>
+                        {% if post.categories %}
+                        <span class="post-category">{{ post.categories | first }}</span>
+                        {% endif %}
+                    </div>
+                    
+                    <h3 class="post-title">
+                        <a href="{{ post.url }}">{{ post.title }}</a>
+                    </h3>
+                    
+                    <p class="post-excerpt">{{ post.excerpt | strip_html | truncate: 150 }}</p>
+                    
+                    <div class="post-footer">
+                        <a href="{{ post.url }}" class="post-link">
+                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M5 12H19M19 12L12 5M19 12L12 19" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                            </svg>
+                            Czytaj dalej
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </article>
+        {% endfor %}
+    </div>
+    
+    <div class="posts-cta">
+        <a href="/blog" class="btn btn-accent">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M9 12H15M12 9L15 12L12 15" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+            Zobacz wszystkie posty
+        </a>
+    </div>
+</div>
+
+<style>
+/* Główne style sekcji postów */
+.posts-section {
+    padding: 2.5rem;
+}
+
+.section-title {
+    position: relative;
+    padding-bottom: 1rem;
+    margin-bottom: 2rem;
+    color: var(--dark);
+    font-size: 1.8rem;
+}
+
+.section-title::after {
+    content: "";
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 60px;
+    height: 3px;
+    background: var(--accent);
+    border-radius: 3px;
+}
+
+/* Grid postów */
+.posts-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2rem;
+    margin-top: 1.5rem;
+}
+
+/* Karta posta */
+.post-card {
+    background: white;
+    border-radius: var(--radius-lg);
+    overflow: hidden;
+    box-shadow: var(--shadow-md);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    height: 100%;
+}
+
+.post-card-inner {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+}
+
+.post-card:hover {
+    transform: translateY(-5px);
+    box-shadow: var(--shadow-lg);
+}
+
+/* Zdjęcie posta */
+.post-image-link {
+    position: relative;
+    display: block;
+    height: 200px;
+    overflow: hidden;
+}
+
+.post-image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.5s ease;
+}
+
+.post-card:hover .post-image {
+    transform: scale(1.05);
+}
+
+.post-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0, 0, 0, 0.3);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+.post-card:hover .post-overlay {
+    opacity: 1;
+}
+
+.read-more {
+    color: white;
+    font-weight: bold;
+    background: var(--accent);
+    padding: 0.5rem 1rem;
+    border-radius: var(--radius-sm);
+    text-transform: uppercase;
+    font-size: 0.8rem;
+    letter-spacing: 1px;
+}
+
+/* Treść posta */
+.post-content {
+    padding: 1.5rem;
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+}
+
+.post-meta {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 0.8rem;
+    font-size: 0.85rem;
+    color: var(--gray-dark);
+}
+
+.post-category {
+    background: var(--light);
+    color: var(--primary);
+    padding: 0.2rem 0.6rem;
+    border-radius: var(--radius-sm);
+    font-weight: 600;
+    font-size: 0.75rem;
+    text-transform: uppercase;
+}
+
+.post-title {
+    margin: 0.5rem 0 1rem;
+    font-size: 1.25rem;
+    line-height: 1.4;
+}
+
+.post-title a {
+    color: var(--dark);
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+.post-title a:hover {
+    color: var(--primary);
+}
+
+.post-excerpt {
+    margin: 0 0 1.5rem;
+    color: #555;
+    font-size: 0.95rem;
+    line-height: 1.6;
+    flex-grow: 1;
+}
+
+/* Stopka karty */
+.post-footer {
+    margin-top: auto;
+    border-top: 1px solid rgba(0, 0, 0, 0.1);
+    padding-top: 1rem;
+}
+
+.post-link {
+    color: var(--primary);
+    font-weight: 600;
+    text-decoration: none;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    font-size: 0.9rem;
+    transition: color 0.3s ease;
+}
+
+.post-link:hover {
+    color: var(--primary-dark);
+}
+
+.post-link svg {
+    transition: transform 0.3s ease;
+}
+
+.post-link:hover svg {
+    transform: translateX(3px);
+}
+
+/* Przycisk CTA */
+.posts-cta {
+    text-align: center;
+    margin-top: 3rem;
+}
+
+.btn-accent {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    background: var(--accent);
+    color: var(--dark);
+    border: none;
+    transition: all 0.3s ease;
+}
+
+.btn-accent:hover {
+    background: var(--accent-dark);
+    transform: translateY(-2px);
+}
+
+/* Responsywność */
+@media (max-width: 768px) {
+    .posts-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    .post-image-link {
+        height: 180px;
+    }
+    
+    .section-title {
+        font-size: 1.5rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .posts-section {
+        padding: 1.5rem;
+    }
+    
+    .post-content {
+        padding: 1.25rem;
+    }
+}
+</style>
