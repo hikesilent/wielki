@@ -54,108 +54,30 @@
 </div>
 
 <style>
-/* Główne style sekcji postów */
 .posts-section {
     padding: 2.5rem;
+    background-color: #fff; /* Białe tło sekcji */
 }
 
-.section-title {
-    position: relative;
-    padding-bottom: 1rem;
-    margin-bottom: 2rem;
-    color: var(--dark);
-    font-size: 1.8rem;
-}
-
-.section-title::after {
-    content: "";
-    position: absolute;
-    bottom: 0;
-    left: 0;
-    width: 60px;
-    height: 3px;
-    background: var(--accent);
-    border-radius: 3px;
-}
-
-/* Grid postów - Dwa obok siebie na desktopie */
-.posts-grid {
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    gap: 2rem;
-    margin-top: 1.5rem;
-}
-
-/* Karta posta */
+/* Karta posta - zmienione tło na delikatny szary */
 .post-card {
-    background: white;
+    background: #f8fafc; /* Bardzo delikatny szary */
     border-radius: var(--radius-lg);
     overflow: hidden;
-    box-shadow: var(--shadow-md);
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08); /* Delikatniejszy cień */
+    transition: all 0.3s ease;
     height: 100%;
-}
-
-.post-card-inner {
-    display: flex;
-    flex-direction: column;
-    height: 100%;
+    border: 1px solid #f1f5f9; /* Bardzo subtelne obramowanie */
 }
 
 .post-card:hover {
     transform: translateY(-5px);
-    box-shadow: var(--shadow-lg);
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.12);
+    background: #ffffff; /* Przy hover lekko jaśniejsze */
+    border-color: #e2e8f0; /* Więcej widoczne obramowanie przy hover */
 }
 
-/* Zdjęcie posta */
-.post-image-link {
-    position: relative;
-    display: block;
-    height: 200px;
-    overflow: hidden;
-}
-
-.post-image {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    transition: transform 0.5s ease;
-}
-
-.post-card:hover .post-image {
-    transform: scale(1.05);
-}
-
-.post-overlay {
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    background: rgba(0, 0, 0, 0.3);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    opacity: 0;
-    transition: opacity 0.3s ease;
-}
-
-.post-card:hover .post-overlay {
-    opacity: 1;
-}
-
-.read-more {
-    color: white;
-    font-weight: bold;
-    background: var(--accent);
-    padding: 0.5rem 1rem;
-    border-radius: var(--radius-sm);
-    text-transform: uppercase;
-    font-size: 0.8rem;
-    letter-spacing: 1px;
-}
-
-/* Treść posta */
+/* Treść posta - dostosowane kolory tekstu */
 .post-content {
     padding: 1.5rem;
     flex-grow: 1;
@@ -163,53 +85,17 @@
     flex-direction: column;
 }
 
-.post-meta {
-    display: flex;
-    justify-content: space-between;
-    margin-bottom: 0.8rem;
-    font-size: 0.85rem;
-    color: var(--gray-dark);
-}
-
-.post-category {
-    background: var(--light);
-    color: var(--primary);
-    padding: 0.2rem 0.6rem;
-    border-radius: var(--radius-sm);
-    font-weight: 600;
-    font-size: 0.75rem;
-    text-transform: uppercase;
-}
-
-.post-title {
-    margin: 0.5rem 0 1rem;
-    font-size: 1.25rem;
-    line-height: 1.4;
-}
-
 .post-title a {
-    color: var(--dark);
-    text-decoration: none;
-    transition: color 0.3s ease;
-}
-
-.post-title a:hover {
-    color: var(--primary);
+    color: #1e293b; /* Ciemniejszy odcień dla lepszej czytelności */
 }
 
 .post-excerpt {
-    margin: 0 0 1.5rem;
-    color: #555;
-    font-size: 0.95rem;
-    line-height: 1.6;
-    flex-grow: 1;
+    color: #475569; /* Przyciemniony szary dla tekstu */
 }
 
-/* Stopka karty */
+/* Stopka karty - subtelna linia */
 .post-footer {
-    margin-top: auto;
-    border-top: 1px solid rgba(0, 0, 0, 0.1);
-    padding-top: 1rem;
+    border-top: 1px solid #e2e8f0; /* Delikatna szara linia */
 }
 
 .post-link {
