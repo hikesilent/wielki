@@ -2,7 +2,7 @@
     <h2 class="section-title">Ostatnie wpisy</h2>
     
     <div class="posts-grid">
-        {% for post in site.posts limit:3 %}
+        {% for post in site.posts limit:6 %}
         <article class="post-card">
             <div class="post-card-inner">
                 <a href="{{ post.url }}" class="post-image-link">
@@ -78,10 +78,10 @@
     border-radius: 3px;
 }
 
-/* Grid postów */
+/* Grid postów - Dwa obok siebie na desktopie */
 .posts-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    grid-template-columns: repeat(2, 1fr);
     gap: 2rem;
     margin-top: 1.5rem;
 }
@@ -256,7 +256,7 @@
     transform: translateY(-2px);
 }
 
-/* Responsywność */
+/* Responsywność - Jeden pod drugim na mobile */
 @media (max-width: 768px) {
     .posts-grid {
         grid-template-columns: 1fr;
