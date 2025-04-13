@@ -2,8 +2,6 @@
 title: Jak dobrać wędkę? Poradnik dla początkujących i nie tylko.
 image: /assets/images/uploads/1000013078.jpg
 author: RybkiParty
-category:
-  - Poradniki
 date: 2025-04-13T08:40:00.000Z
 hidden: false
 ---
