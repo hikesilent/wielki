@@ -1,9 +1,16 @@
-title: Rybki.party
-description: Kanał dla prawdziwych wędkarzy
+title: wielki.win
+description: kanał o grach
 baseurl: ""
-url: "https://hikesilent.github.io/testowy/"
+url: "https://wielki.win"
 theme: minima
+timezone: Europe/Warsaw
 
+sitemap:
+  exclude:
+    - "/author"
+    - "/admin/index.html"
+    - "/google8d6f0e19f677a1e1.html"
+    
 collections:
   authors:
     output: true

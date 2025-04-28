@@ -10,5 +10,25 @@
 <meta property="og:url" content="{{ page.url | absolute_url }}">
 <meta name="twitter:card" content="summary_large_image">
 
+<link href="https://fonts.googleapis.com/css2?family=Bungee&family=Luckiest+Guy&family=Sigmar+One&family=Unica+One&family=DynaPuff:wdth,wght@100..125,100..900&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="{{ '/assets/css/main.css' | relative_url }}">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+
+<style>
+  body {
+    font-family: {{ site.data.siteinfo.font | default: "'Segoe UI', Tahoma, Geneva, Verdana, sans-serif" }};
+  }
+</style>
+
+{% assign ga = site.data.siteinfo.googleAnalytics %}
+{% if jekyll.environment == "production" and ga and ga != "" %}
+  <!-- Google Analytics -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id={{ ga }}"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', '{{ ga }}');
+  </script>
+{% endif %}
+
