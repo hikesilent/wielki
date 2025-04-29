@@ -1,0 +1,142 @@
+<footer class="site-footer">
+  <div class="footer-wave"></div>
+  <div class="footer-container">
+    <div class="footer-col brand">
+      <div class="logo">
+        <span class="logo-text">{{ site.data.siteinfo.title }}</span>
+      </div>
+      <p class="footer-tagline">{{ site.data.siteinfo.description }}</p>
+    </div>
+
+    <div class="footer-col links">
+      <h4>Na skróty</h4>
+      <ul>
+        <li><a href="/">Strona główna</a></li>
+        <li><a href="/o-nas">O nas</a></li>
+        <li><a href="/kontakt">Kontakt</a></li>
+        <li><a href="/polityka-prywatnosci">Polityka prywatności</a></li>
+      </ul>
+    </div>
+
+    <div class="footer-col social">
+      <h4>Znajdź nas</h4>
+
+
+<div class="social-icons">
+  {% for item in site.data.siteinfo.socials %}
+    <a href="{{ item.url }}" target="_blank" aria-label="{{ item.name }}">
+      <img src="{{ item.icon }}" alt="{{ item.name }}" />
+    </a>
+  {% endfor %}
+</div>
+
+
+    </div>
+  </div>
+
+  <div class="footer-bottom">
+    <p>&copy; <span id="current-year"></span> {{ site.data.siteinfo.title }} — Wszystkie prawa zastrzeżone</p>
+  </div>
+</footer>
+
+<script>
+  document.getElementById('current-year').textContent = new Date().getFullYear();
+</script>
+
+
+<style>
+.site-footer {
+  background: linear-gradient(145deg, #03045e, #0077b6);
+  color: white;
+  position: relative;
+  overflow: hidden;
+  padding-top: 4rem;
+  font-family: 'Segoe UI', sans-serif;
+}
+
+.footer-wave {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 80px;
+  background: url('your-wave.svg') no-repeat;
+  background-size: cover;
+  transform: rotate(180deg);
+}
+
+.footer-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 2rem;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 2rem 1rem;
+}
+
+.footer-col h4 {
+  font-size: 1.1rem;
+  margin-bottom: 1rem;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.3);
+  padding-bottom: 0.5rem;
+}
+
+.footer-col ul {
+  list-style: none;
+  padding: 0;
+}
+
+.footer-col ul li {
+  margin-bottom: 0.7rem;
+}
+
+.footer-col ul li a {
+  color: #caf0f8;
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+
+.footer-col ul li a:hover {
+  color: #ffba08;
+}
+
+.footer-tagline {
+  font-size: 1rem;
+  margin-top: 0.5rem;
+  opacity: 0.9;
+}
+
+.logo-text {
+  font-size: 2rem;
+  font-weight: bold;
+  background: linear-gradient(to right, #90e0ef, #ffb703);
+  -webkit-background-clip: text;
+  color: transparent;
+  display: inline-block;
+}
+
+.social-icons a {
+  display: inline-block;
+  margin-right: 0.7rem;
+  transition: transform 0.3s;
+}
+
+.social-icons a:hover {
+  transform: scale(1.1);
+}
+
+.social-icons img {
+  width: 24px;
+  height: 24px;
+  filter: brightness(0) invert(1);
+}
+
+.footer-bottom {
+  text-align: center;
+  padding: 1rem;
+  background: rgba(0, 0, 0, 0.15);
+  font-size: 0.9rem;
+  margin-top: 2rem;
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+}
+</style>
