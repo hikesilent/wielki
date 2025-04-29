@@ -3,6 +3,11 @@ description: "kanał o grach"
 email: "kontakt@wielki.win"
 phone: ""
 googleAnalytics: "G-VFDRLJY79C"
+colors:
+  backgroundDark: "#54006e"
+  text: "#ffffff"
+  link: "#e6caf8"
+  link_hover: "#ff9e00"
 
 socials:
   - name: "Facebook"
